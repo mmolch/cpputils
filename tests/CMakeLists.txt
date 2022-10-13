@@ -1,0 +1,4 @@
+
+add_executable(getFileContent_ctest getFileContent_ctest.cpp)
+target_link_libraries(getFileContent_ctest cpputils)
+add_test(getFileContent_ctest getFileContent_ctest)
