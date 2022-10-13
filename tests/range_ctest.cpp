@@ -14,25 +14,25 @@ struct TestEntry
     std::vector<int> results;
 };
 
-const std::vector<TestEntry> tests {
+const std::vector<TestEntry> testdata {
     { 1, 2, 3, { 1 } },
     { 5, 3, 1, {} },
     { -10, -15, -1, { -10, -11, -12, -13, -14 } },
     { -10, 20, 5, { -10, -5, 0, 5, 10, 15 } }
 };
 
-int main( int argc, char const *argv[] )
+int main (int argc, char const *argv[])
 {
-    for( auto& [start, end, step, results] : tests )
+    for (auto& [start, end, step, results] : testdata)
     {
-        int count = 0;
+        int loopCounter = 0;
 
-        for( auto i : mmolch::util::range( start, end, step ) )
+        for (auto i : mmolch::util::range(start, end, step))
         {
-            assert( count < results.length() );
-            assert( i == results[count] );
+            assert (loopCounter < results.length());
+            assert (i == results[loopCounter]);
 
-            ++count;
+            ++loopCounter;
         }
     }
     
