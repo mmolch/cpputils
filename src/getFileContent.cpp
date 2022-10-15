@@ -1,6 +1,5 @@
 #include "getFileContent.hpp"
 
-#include <iostream>
 #include <fstream>
 #include <limits>
 
