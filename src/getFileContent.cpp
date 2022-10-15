@@ -17,24 +17,25 @@ std::vector<char> getFileContent(std::string_view path)
     }
 
     // in_avail() returns the number of characters available for reading before the buffer must be refilled
+    // At least on Linux with GCC 12.2.0 this gives the file size. In other cases this value should be reasonable.
     auto available = file.rdbuf()->in_avail();
 
     // use a two-step approach. Try to read as much as possible directly into the returned vector first
-    std::vector<char> data(available, '\0');
+    std::vector<char> data(available);
 
     if (file.read(data.data(), data.size()))
     {
         // There's still more data. Use a buffer.
         // Use the previous available size (should be the buffer size of the rdbuf() backing the stream)
-        std::vector<char> buffer(available, '\0');
+        std::vector<char> buffer(available);
 
         while (file.read(buffer.data(), buffer.size()))
         {
             // Looks initimdating at first but uses memmove under the hood. The rest is constant
-            data.insert(data.begin(), buffer.begin(), std::next(buffer.begin(), file.gcount()));
+            data.insert(data.end(), buffer.begin(), std::next(buffer.begin(), file.gcount()));
         }
 
-        data.insert(data.begin(), buffer.begin(), std::next(buffer.begin(), file.gcount()));
+        data.insert(data.end(), buffer.begin(), std::next(buffer.begin(), file.gcount()));
     }
 
     return data;
