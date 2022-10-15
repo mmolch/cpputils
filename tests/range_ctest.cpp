@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-#include <range.hpp>
+#include <mmolch/range.hpp>
 
 
 struct TestEntry
@@ -27,9 +27,9 @@ int main (int argc, char const *argv[])
     {
         int loopCounter = 0;
 
-        for (auto i : mmolch::util::range(start, end, step))
+        for (auto i : mmolch::range(start, end, step))
         {
-            assert (loopCounter < results.length());
+            assert (loopCounter < results.size());
             assert (i == results[loopCounter]);
 
             ++loopCounter;

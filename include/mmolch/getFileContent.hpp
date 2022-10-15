@@ -1,12 +1,10 @@
-#ifndef MMOLCH_UTIL_GETFILECONTENT_HPP
-#define MMOLCH_UTIL_GETFILECONTENT_HPP
+#ifndef MMOLCH_GETFILECONTENT_HPP
+#define MMOLCH_GETFILECONTENT_HPP
 
 #include <string_view>
 #include <vector>
 
 namespace mmolch
-{
-namespace util
 {
 
 /**
@@ -20,7 +18,6 @@ namespace util
 [[nodiscard]]
 std::vector<char> getFileContent(std::string_view path);
 
-} // namespace util
 } // namespace mmolch
 
-#endif // MMOLCH_UTIL_GETFILECONTENT_HPP
+#endif // MMOLCH_GETFILECONTENT_HPP

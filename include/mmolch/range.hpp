@@ -1,9 +1,7 @@
-#ifndef MMOLCH_UTIL_RANGE_HPP
-#define MMOLCH_UTIL_RANGE_HPP
+#ifndef MMOLCH_RANGE_HPP
+#define MMOLCH_RANGE_HPP
 
 namespace mmolch
-{
-namespace util
 {
 
 template <typename T = int>
@@ -78,7 +76,6 @@ private:
     T m_step;
 };
 
-} // namespace util
 } // namespace mmolch
 
-#endif // MMOLCH_UTIL_RANGE_HPP
+#endif // MMOLCH_RANGE_HPP

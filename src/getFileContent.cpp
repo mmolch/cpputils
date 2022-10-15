@@ -1,11 +1,9 @@
-#include "getFileContent.hpp"
+#include <mmolch/getFileContent.hpp>
 
 #include <fstream>
 #include <limits>
 
 namespace mmolch
-{
-namespace util
 {
 
 std::vector<char> getFileContent(std::string_view path)
@@ -46,5 +44,4 @@ std::vector<char> getFileContent(std::string_view path)
     return data;
 }
 
-} // namespace util
 } // namespace mmolch
